@@ -1,7 +1,10 @@
 /*!
- * jQuery Network Camera v0.0.1 (https://github.com/gunthercox/jquery-network-camera/)
+ * jQuery Network Camera v0.0.1
+ * (https://github.com/gunthercox/jquery-network-camera)
  * Copyright 2015 Gunther Cox
- * Licensed under MIT (https://github.com/gunthercox/jquery-network-camera/blob/master/LICENSE.md) */
+ * Licensed under the MIT license
+ */
+
 ;(function ($, window, document, undefined) {
 
     var pluginName = 'networkCamera';

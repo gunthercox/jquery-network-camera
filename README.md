@@ -1,6 +1,7 @@
 # JQuery Network Camera
 
 [![npm version](https://badge.fury.io/js/jquery-network-camera.svg)](https://www.npmjs.com/package/jquery-network-camera)
+[![Build Status](https://travis-ci.org/gunthercox/jquery-network-camera.svg)](https://travis-ci.org/gunthercox/jquery-network-camera)
 
 This is a jQuery plugin that makes it possible to stream the feed from an open network camera onto an element on a web page. This plugin handles the process of loading the image in the background to prevent breaks and flickering from appearing in the output stream. The output of the video stream will be applied to an html canvas which will automatically change size to fill the selected element.
 

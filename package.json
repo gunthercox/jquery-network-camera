@@ -4,7 +4,7 @@
   "description": "A jQuery plugin for rendering network camera image streams.",
   "main": "network-camera.js",
   "scripts": {
-    "test": "test-command"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -12,11 +12,19 @@
   },
   "keywords": [
     "jquery",
-    "camera"
+    "network",
+    "ip",
+    "camera",
+    "feed"
   ],
   "author": "Gunther Cox",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gunthercox/jquery-camera-feed/issues"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-qunit": "^0.7.0"
   }
 }
