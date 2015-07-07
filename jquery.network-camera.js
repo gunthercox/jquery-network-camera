@@ -129,8 +129,10 @@
     */
     $.fn.networkCamera = function (options) {
 
+        var plugin = $.data(this, "plugin_" + pluginName);
+
         this.each(function() {
-            if (!$.data(this, "plugin_" + pluginName)) {
+            if (!plugin) {
                 /*
                     Use "$.data" to save each instance of the plugin in case
                     the user wants to modify it. Using "$.data" in this way
@@ -142,21 +144,9 @@
                 */
                 $.data(this, "plugin_" + pluginName, new Plugin(this, options));
             } else {
-
-                var plugin = $.data(this, "plugin_" + pluginName);
-
-                // Execute methods
-
-                if (options == 'pause') {
-                    plugin.pause();
-                }
-
-                if (options == 'stream') {
-                    plugin.stream();
-                }
-
-                if (options == 'toggle') {
-                    plugin.toggle();
+                // Execute method by name
+                if (typeof options === 'string') {
+                    plugin[options]();
                 }
             }
         });

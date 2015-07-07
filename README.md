@@ -10,7 +10,7 @@ This is a jQuery plugin that makes it possible to stream the feed from an open n
 | Name | type | default | description |
 |------|------|---------|-------------|
 | url  | string | null | The url path to the streaming webcam image. |
-| streaming | boolean | true | If the webcam image should be streamed live. If false, only an single image will be rendered. |
+| stream | boolean | true | If the webcam image should be streamed live. If false, only an single image will be rendered. |
 
 ### Methods
 
