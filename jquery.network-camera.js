@@ -53,7 +53,10 @@
             function load() {
 	            if (drawingCanvas.getContext) {
 		            var context = drawingCanvas.getContext("2d");
-		            context.drawImage(image,0,0,640,480,0,0,300,150);
+		            context.drawImage(
+                        image, 0, 0, image.width, image.height,
+                        0, 0, $canvas[0].width, $canvas[0].height
+                    );
 	            }
 
                 if (streaming) {
@@ -129,10 +132,8 @@
     */
     $.fn.networkCamera = function (options) {
 
-        var plugin = $.data(this, "plugin_" + pluginName);
-
         this.each(function() {
-            if (!plugin) {
+            if (!$.data(this, "plugin_" + pluginName)) {
                 /*
                     Use "$.data" to save each instance of the plugin in case
                     the user wants to modify it. Using "$.data" in this way
@@ -144,6 +145,9 @@
                 */
                 $.data(this, "plugin_" + pluginName, new Plugin(this, options));
             } else {
+
+                var plugin = $.data(this, "plugin_" + pluginName);
+
                 // Execute method by name
                 if (typeof options === 'string') {
                     plugin[options]();
