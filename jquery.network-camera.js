@@ -34,40 +34,37 @@
             this.buildCache();
             this.bindEvents();
 
-            var self = this;
+            this.timer = null;
+            this.count = 0;
+            this.image = null;
 
-            var timer = null;
-            var count = 0;
-            var image = null;
+            var plugin = this;
 
-            var $canvas = $('<canvas/>', {'width': '100%', 'height': '100%'});
-            var drawingCanvas = $canvas[0];
-
-            function reload() {
-	            image = new Image();
-	            image.onload = load;
-	            image.src = self.options.url + "?u=" + count;
-	            count++;
+            function reload () {
+	            plugin.image = new Image();
+	            plugin.image.onload = load;
+	            plugin.image.src = plugin.options.url + "?u=" + plugin.count;
+	            plugin.count++;
             }
 
-            function load() {
-	            if (drawingCanvas.getContext) {
-		            var context = drawingCanvas.getContext("2d");
+            function load () {
+	            if (plugin.drawingCanvas.getContext) {
+		            context = plugin.drawingCanvas.getContext("2d");
 		            context.drawImage(
-                        image, 0, 0, image.width, image.height,
-                        0, 0, $canvas[0].width, $canvas[0].height
+                        plugin.image, 0, 0,
+                        plugin.image.width,
+                        plugin.image.height, 0, 0,
+                        plugin.$canvas[0].width,
+                        plugin.$canvas[0].height
                     );
 	            }
 
                 if (streaming) {
-	                setTimeout(reload, timer);
+	                window.setTimeout(reload, plugin.timer);
                 }
             }
 
-            setTimeout(reload, timer);
-
-            this.$element.html($canvas);
-
+            window.setTimeout(reload, this.timer);
         },
 
         // Remove plugin instance completely
@@ -79,6 +76,12 @@
         // Cache DOM nodes for performance
         buildCache: function () {
             this.$element = $(this.element);
+
+            this.$canvas = $('<canvas/>', {'width': '100%', 'height': '100%'});
+            this.drawingCanvas = this.$canvas[0];
+            this.context = null;
+
+            this.$element.html(this.$canvas);
         },
 
         // Bind events that trigger methods
