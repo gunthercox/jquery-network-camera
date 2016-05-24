@@ -1,6 +1,6 @@
 {
   "name": "jquery-network-camera",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A jQuery plugin for rendering network camera image streams.",
   "main": "network-camera.js",
   "scripts": {

@@ -59,3 +59,11 @@ $('#myCamera').on('pause', function () {
   // do something...
 });
 ```
+
+## Bower
+
+You can also install this package using [bower](http://bower.io/).
+
+```
+bower install jquery-network-camera
+```
