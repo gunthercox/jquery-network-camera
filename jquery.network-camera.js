@@ -12,14 +12,17 @@
     var streaming = true;
 
     function Plugin (element, options) {
+
         this.element = element;
         this._name = pluginName;
         this._defaults = $.fn.networkCamera.defaults;
 
         this.options = $.extend({}, this._defaults, options);
 
-        if (!this.options.url) {
-            $.error('The url parameter is required to initialize camera feed.');
+        if (!(options === 'pause' || options === 'stream')) {
+            if (!this.options.url) {
+                $.error('The url parameter is required to initialize camera feed.');
+            }
         }
 
         streaming = this.options.stream;
