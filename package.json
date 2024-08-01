@@ -26,8 +26,8 @@
     "jquery": "latest"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-qunit": "^0.7.0"
+    "grunt": "^1.6.1",
+    "grunt-cli": "^1.5.0",
+    "grunt-contrib-qunit": "^10.1.1"
   }
 }
